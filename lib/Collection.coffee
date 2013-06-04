@@ -159,4 +159,11 @@ class Collection extends EventEmitter
 
     @runCommand "distinct", [key, query], cb
 
+  aggregate: (pipeline, options, cb) ->
+    cb ||= noop
+    options ||= {}
+    pipeline ||= {}
+    @runCommand "aggregate", [pipeline, options], cb
+
+
 module.exports = Collection
